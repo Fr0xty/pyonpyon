@@ -1,0 +1,34 @@
+{
+  "name": "pyonpyon",
+  "version": "1.0.0",
+  "description": "Discord bot for Pyon Pyon server",
+  "type": "module",
+  "main": "app.js",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@fr0xty/prettier-config": "^1.0.2",
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fr0xty/pyonpyon.git"
+  },
+  "keywords": [
+    "discord bot"
+  ],
+  "author": "Fr0xty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fr0xty/pyonpyon/issues"
+  },
+  "homepage": "https://github.com/Fr0xty/pyonpyon#readme",
+  "prettier": "@fr0xty/prettier-config"
+}
+
