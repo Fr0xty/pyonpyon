@@ -22,7 +22,7 @@ export const updateServerStats = async (updatedData?: updateServerStatsParams) =
      */
     const embed = new EmbedBuilder()
         .setColor(PyonPyon.color)
-        .setTitle('Server Analytics')
+        .setTitle('Server Statistics')
         .setFields(
             {
                 name: 'Members:',
