@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import PyonPyon from '../res/client.js';
-import { TextChannel } from 'discord.js';
+import type { TextChannel } from 'discord.js';
 import { updateServerStats } from '../utils/serverStatsHelper.js';
 
 PyonPyon.on('ready', async () => {
