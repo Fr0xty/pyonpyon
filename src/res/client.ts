@@ -11,6 +11,8 @@ const PyonPyon = new Client({
     ],
 });
 
+PyonPyon.color = '#5e94f7';
+
 /**
  * export the client
  */

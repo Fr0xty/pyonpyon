@@ -1,20 +1,34 @@
 import 'dotenv/config';
 import PyonPyon from '../res/client.js';
-import type { ClientStatsChannels } from 'discord.js';
+import { TextChannel } from 'discord.js';
+import { updateServerStats } from '../utils/serverStatsHelper.js';
 
 PyonPyon.on('ready', async () => {
+    /**
+     * pyon pyon server
+     */
     PyonPyon.guild = await PyonPyon.guilds.fetch(process.env.PYONPYON_GUILD_ID!);
 
-    PyonPyon.statsChannels = {
-        members: await PyonPyon.guild.channels.fetch(process.env.MEMBER_STAT_CHANNEL_ID!),
-        emojis: await PyonPyon.guild.channels.fetch(process.env.EMOJI_STAT_CHANNEL_ID!),
-        roles: await PyonPyon.guild.channels.fetch(process.env.ROLE_STAT_CHANNEL_ID!),
-    } as ClientStatsChannels;
+    /**
+     * store pyon pyon server info
+     */
+    const statsChannel = (await PyonPyon.guild.channels.fetch(process.env.SERVER_ANALYTICS_CHANNEL_ID!)) as TextChannel;
+
+    PyonPyon.serverStatistics = {
+        channel: statsChannel,
+
+        message: await statsChannel.messages.fetch(process.env.SERVER_ANALYTICS_MESSAGE_ID!),
+
+        data: {
+            member: PyonPyon.guild.memberCount,
+            emoji: (await PyonPyon.guild.emojis.fetch()).size,
+            role: (await PyonPyon.guild.roles.fetch()).size,
+            boost: PyonPyon.guild.premiumSubscriptionCount ?? 0,
+        },
+    };
 
     /**
      * initial stats update
      */
-    await PyonPyon.statsChannels.members.setName(`members: ${PyonPyon.guild.memberCount}`);
-    await PyonPyon.statsChannels.emojis.setName(`emojis: ${(await PyonPyon.guild.emojis.fetch()).size}`);
-    await PyonPyon.statsChannels.roles.setName(`roles: ${(await PyonPyon.guild.roles.fetch()).size}`);
+    await updateServerStats();
 });

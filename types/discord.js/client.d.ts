@@ -7,16 +7,18 @@ declare module 'discord.js' {
          */
         guild: Guild;
 
-        statsChannels: {
-            members: VoiceChannel;
-            emojis: VoiceChannel;
-            roles: VoiceChannel;
-        };
-    }
+        color: ColorResolvable;
 
-    export interface ClientStatsChannels {
-        members: VoiceChannel;
-        emojis: VoiceChannel;
-        roles: VoiceChannel;
+        serverStatistics: {
+            channel: TextChannel;
+            message: Message;
+
+            data: {
+                member: number;
+                emoji: number;
+                role: number;
+                boost: number;
+            };
+        };
     }
 }
