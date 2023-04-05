@@ -1,5 +1,6 @@
 import { ActionRowBuilder, EmbedBuilder, StringSelectMenuBuilder, TextChannel } from 'discord.js';
 import PyonPyon from '../res/client.js';
+import RoleId from '../res/enums/role_id.json' assert { type: 'json' };
 
 export const updateRoleSelectMessage = async () => {
     const roleSelectChannel = (await PyonPyon.guild.channels.fetch('824232221384507413')) as TextChannel;
@@ -23,43 +24,43 @@ export const updateRoleSelectMessage = async () => {
         {
             label: 'Valorant',
             description: 'plays Valorant.',
-            value: 'valorant',
+            value: RoleId.valorant,
             emoji: '1093107816417480744',
         },
         {
             label: 'Genshin Gang',
             description: 'plays Genshin Impact.',
-            value: 'genshin',
+            value: RoleId.genshin,
             emoji: '1068529775091667044',
         },
         {
             label: 'Minecrafter',
             description: 'plays Minecraft.',
-            value: 'minecraft',
+            value: RoleId.minecraft,
             emoji: '1093100714483519538',
         },
         {
             label: 'Japanese',
             description: 'interested in / knows Japanese language and culture.',
-            value: 'japanese',
+            value: RoleId.japan,
             emoji: String.fromCodePoint(0x1f1ef, 0x1f1f5),
         },
         {
             label: 'Developer',
             description: 'programs software, interested in computer science, etc.',
-            value: 'developer',
+            value: RoleId.developer,
             emoji: String.fromCodePoint(0x1f4bb),
         },
         {
             label: 'Free Stuff',
             description: 'get pinged when there are free games available to grab.',
-            value: 'free',
+            value: RoleId.free,
             emoji: '853809142493610055',
         },
         {
             label: 'Cultured',
             description: 'get pinged occasionally in #twitter-pics #cosplays #art-gallery.',
-            value: 'cultured',
+            value: RoleId.cultured,
             emoji: '853809130208231445',
         },
     ];
