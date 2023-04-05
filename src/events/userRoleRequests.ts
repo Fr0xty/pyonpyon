@@ -10,7 +10,6 @@ const userRoleRequestsFunction = async (interaction: BaseInteraction) => {
         await interaction.reply({
             content: `Successfully added these role(s):\n${rolesSelected.map((roleId) => `<@&${roleId}>`).join(', ')}`,
             ephemeral: true,
-            tts: true,
         });
     }
 
