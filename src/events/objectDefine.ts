@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import PyonPyon from '../res/client.js';
-import type { TextChannel } from 'discord.js';
+import { TextChannel } from 'discord.js';
 import { updateServerStats } from '../utils/serverStatsHelper.js';
+import { updateRoleSelectMessage } from '../utils/roleSelectHelper.js';
 
 PyonPyon.on('ready', async () => {
     /**
@@ -31,4 +32,5 @@ PyonPyon.on('ready', async () => {
      * initial stats update
      */
     await updateServerStats();
+    await updateRoleSelectMessage();
 });
